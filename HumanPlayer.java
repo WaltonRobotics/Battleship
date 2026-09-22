@@ -2,7 +2,7 @@ public class HumanPlayer extends Player
 {
     public HumanPlayer(String name)
     {
-
+        super(name);
     }
 
     /**
@@ -29,7 +29,7 @@ public class HumanPlayer extends Player
     @Override
     public boolean attack(Player enemy, Location loc)
     {
-
+        return false;
     }
 
     /**

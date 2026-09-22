@@ -10,12 +10,12 @@ public abstract class Player
 
     public Player(String name)
     {
-
+        this.name = name;
     }
 
     public String getName()
     {
-
+        return name;
     }
 
     /**
@@ -26,7 +26,7 @@ public abstract class Player
      */
     public int getNumberOfShips()
     {
-
+        return ships.size();
     }
 
     /**
@@ -39,7 +39,7 @@ public abstract class Player
      */
     public Ship getShip(Location loc)
     {
-
+        return new PatrolBoat(new Location(0, 0));
     }
 
     public void addShip(Ship ship)
@@ -62,12 +62,12 @@ public abstract class Player
      */
     public boolean hasShipAtLocation(Location loc)
     {
-
+        return false;
     }
 
     public int[][] getGuessBoard()
     {
-
+        return guessBoard;
     }
 
     /**
@@ -80,7 +80,7 @@ public abstract class Player
     @Override
     public boolean equals(Object obj)
     {
-
+        return false;
     }
 
     /**

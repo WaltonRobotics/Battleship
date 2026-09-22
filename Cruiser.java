@@ -8,6 +8,6 @@ public class Cruiser extends Ship
      */
     public Cruiser(Location... locations)
     {
-
+        super(3);
     }
 }

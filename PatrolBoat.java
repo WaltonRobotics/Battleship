@@ -8,6 +8,6 @@ public class PatrolBoat extends Ship
      */
     public PatrolBoat(Location... locations)
     {
-
+        super(2);
     }
 }

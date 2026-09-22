@@ -4,7 +4,7 @@ public class ComputerPlayer extends Player
 {
     public ComputerPlayer(String name)
     {
-
+        super(name);
     }
 
     /**
@@ -32,7 +32,7 @@ public class ComputerPlayer extends Player
     @Override
     public boolean attack(Player enemy, Location loc)
     {
-
+        return false;
     }
 
     /**

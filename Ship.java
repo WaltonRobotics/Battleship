@@ -9,17 +9,19 @@ public abstract class Ship
 
     public Ship(int length)
     {
-
+        this.length = length;
     }
 
     public void addLocation(Location... loc)
     {
-
+        for (var coord : loc) {
+            locations.add(coord);
+        }
     }
 
     public List<Location> getLocations()
     {
-
+        return locations;
     }
 
     /**
@@ -40,6 +42,6 @@ public abstract class Ship
      */
     public boolean isSunk()
     {
-
+        return hitsTaken.size() == length;
     }
 }

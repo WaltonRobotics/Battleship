@@ -8,6 +8,6 @@ public class AircraftCarrier extends Ship
      */
     public AircraftCarrier(Location... locations)
     {
-
+        super(5);
     }
 }

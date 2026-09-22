@@ -8,6 +8,6 @@ public class Submarine extends Ship
      */
     public Submarine(Location... locations)
     {
-
+        super(3);
     }
 }

@@ -8,6 +8,6 @@ public class Destroyer extends Ship
      */
     public Destroyer(Location... locations)
     {
-
+        super(4);
     }
 }

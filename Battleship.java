@@ -7,17 +7,17 @@ public class Battleship
 
     public Battleship()
     {
-
+        players = new ArrayList<Player>();
     }
 
     public Player getPlayer(int i)
     {
-
+        return players.get(i);
     }
 
     public void addPlayer(Player player)
     {
-
+        players.add(player);
     }
 
     /**
@@ -37,7 +37,7 @@ public class Battleship
      */
     public boolean gameOver()
     {
-
+        return players.size() == 1;
     }
 
     /**
@@ -49,6 +49,6 @@ public class Battleship
      */
     public Player getWinner()
     {
-
+        return players.size() == 1 ? players.get(0) : null;
     }
 }
