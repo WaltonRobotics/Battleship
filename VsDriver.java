@@ -7,23 +7,16 @@ import java.io.IOException;
 public class VsDriver extends Canvas
 {
     public static final int WIDTH = 1024, HEIGHT = WIDTH / 12 * 9;
-    private Battleship battleship;
     private int x, y, squareSize, len;
-    private Player p1, p2;
     private BufferedImage logo, end, vs;
 
     public VsDriver()
     {
-        battleship = new Battleship();
-        battleship.addPlayer(new ComputerPlayer("Red"));        // construct player1's AI here
-        battleship.addPlayer(new ComputerPlayer("Blue"));       // construct player2's AI here
 
         x = 90;
         y = 200;
         squareSize = 36;
         len = squareSize * 10 - 1;
-        p1 = battleship.getPlayer(0);
-        p2 = battleship.getPlayer(1);
 
         // Get Battleship Logo
         try {
@@ -46,7 +39,7 @@ public class VsDriver extends Canvas
             e.printStackTrace();
         }
 
-        String title = p1.getName() + " -vs- " + p2.getName();
+        String title = " -vs- ";
         new Window(WIDTH, HEIGHT, title, this);
 
         try {
@@ -61,25 +54,6 @@ public class VsDriver extends Canvas
 
     private void move()
     {
-        boolean p1Turn = true;
-        while(!battleship.gameOver())
-        {
-            if(p1Turn)
-                p1.attack(p2, new Location(0, 0));
-            else
-                p2.attack(p1, new Location(0, 0));
-
-            p1Turn = !p1Turn;
-
-            battleship.upkeep();
-            render();
-
-            try {
-                Thread.sleep(250);                      // milliseconds; adjust to change speed
-            } catch(InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
-        }
     }
 
     private void render()
@@ -90,18 +64,18 @@ public class VsDriver extends Canvas
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
-        if(!battleship.gameOver())
+        if(true)
         {
             // Boards
             renderGrid(g, x, y, squareSize);
-            renderGuesses(g, p1, x, y, squareSize);
+            renderGuesses(g, x, y, squareSize);
             renderGrid(g, 570, y, squareSize);
-            renderGuesses(g, p2, 570, y, squareSize);
+            renderGuesses(g, 570, y, squareSize);
 
             // Names
             g.setColor(Color.WHITE);
-            g.drawString(p1.getName(), x, y + 25 + len);
-            g.drawString(p2.getName(), 570, y + 25 + len);
+            g.drawString("", x, y + 25 + len);
+            g.drawString("", 570, y + 25 + len);
         }
         else
         {
@@ -109,7 +83,7 @@ public class VsDriver extends Canvas
             g.drawImage(end, 0, 0, this);
             g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", 1, squareSize));
-            String winner = battleship.getWinner().getName();
+            String winner = "";
             g.drawString(winner, WIDTH / 2 - (winner.length() * squareSize / 4), HEIGHT / 4);
             g.drawString("Wins!", WIDTH / 2 - ("Wins!".length() * squareSize / 4), HEIGHT / 4 + squareSize);
         }
@@ -145,9 +119,9 @@ public class VsDriver extends Canvas
             g.drawString(i + "", x+(int)(s*0.4)+s*i, y-(int)(s*0.2));
     }
 
-    private void renderGuesses(Graphics g, Player player, int x, int y, int s)
+    private void renderGuesses(Graphics g, int x, int y, int s)
     {
-        int[][] guessBoard = player.getGuessBoard();
+        int[][] guessBoard = new int[0][0];
         for(int r = 0; r < guessBoard.length; r++)
             for(int c = 0; c < guessBoard[r].length; c++)
                 if(guessBoard[r][c] > 0)    // hit
