@@ -1,4 +1,4 @@
-public class Ship{
+public abstract class Ship{
     private int m_length;
     private String m_name;
 
