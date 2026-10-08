@@ -1,5 +1,5 @@
 public class Battleship extends Ship{
-    public Battleship(){
-        super(3,"Cruiser");
+    public Battleship(int length, String name){
+        super(4, "Battleship");
     }
 }
