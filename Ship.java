@@ -19,8 +19,9 @@ public abstract class Ship{
         return m_length;
     }
 
-    public void addLocation(Location location) {
+    public Ship addLocation(Location location) {
         m_locations.add(location);
+        return this;
     }
 
     public HashSet<Location> getLocations() {
