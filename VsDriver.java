@@ -54,6 +54,16 @@ public class VsDriver extends Canvas
 
     private void move()
     {
+        while(true)
+        {
+            render();
+
+            try {
+                Thread.sleep(250);                      // milliseconds; adjust to change speed
+            } catch(InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+        }
     }
 
     private void render()
