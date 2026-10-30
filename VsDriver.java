@@ -17,7 +17,16 @@ public class VsDriver extends Canvas
         y = 200;
         squareSize = 36;
         len = squareSize * 10 - 1;
+        
+        //create battleship games
+        BattleshipGame game = new BattleshipGame(new ComputerPlayer("Player 1"), new ComputerPlayer("Player 2"));
 
+        // get the players names
+        String player1Name = game.getPlayer1().getName();
+        String player2Name = game.getPlayer2().getName();
+
+        // create constructor in battle ship game
+        
         // Get Battleship Logo
         try {
             logo = ImageIO.read(new File("src/Logo.png"));
@@ -39,7 +48,7 @@ public class VsDriver extends Canvas
             e.printStackTrace();
         }
 
-        String title = " -vs- ";
+        String title = player1Name + " -vs- " + player2Name;
         new Window(WIDTH, HEIGHT, title, this);
 
         try {
