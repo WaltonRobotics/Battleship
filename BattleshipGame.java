@@ -15,5 +15,13 @@ public class BattleshipGame {
     public Player getPlayer2() {
         return m_p2;
     }
+
+    public boolean getTurn() {
+        return m_turn;
+    }
+
+    public void changeTurn() {
+        m_turn = !m_turn;
+    }
     
 }
