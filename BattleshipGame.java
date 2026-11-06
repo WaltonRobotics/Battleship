@@ -24,5 +24,9 @@ public class BattleshipGame {
     public void changeTurn() {
         m_p1Turn = !m_p1Turn;
     }
+
+    public boolean isGameOver() {
+        return m_p1.isGameOver() || m_p2.isGameOver();
+    }
     
 }
