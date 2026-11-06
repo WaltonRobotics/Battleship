@@ -137,11 +137,9 @@ public class VsDriver extends Canvas
             g.drawString(i + "", x+(int)(s*0.4)+s*i, y-(int)(s*0.2));
     }
 
-    private void renderGuesses(Graphics g, int x, int y, int s, Player Player)
+    private void renderGuesses(Graphics g, int x, int y, int s, Player player)
     {
-        int[][] guessBoard;
-        
-            guessBoard = Player.getBoard();
+        int[][] guessBoard = player.getBoard();
 
         for(int r = 0; r < guessBoard.length; r++)
             for(int c = 0; c < guessBoard[r].length; c++)
