@@ -9,19 +9,20 @@ public class VsDriver extends Canvas
     public static final int WIDTH = 1024, HEIGHT = WIDTH / 12 * 9;
     private int x, y, squareSize, len;
     private BufferedImage logo, end, vs;
-    BattleshipGame game = new BattleshipGame(new ComputerPlayer("Player 1"), new ComputerPlayer("Player 2"));
+    BattleshipGame m_game;
 
     public VsDriver()
     {
 
+        BattleshipGame m_game = new BattleshipGame(new ComputerPlayer("Player 1"), new ComputerPlayer("Player 2"));
         x = 90;
         y = 200;
         squareSize = 36;
         len = squareSize * 10 - 1;
 
         // get the players names
-        String player1Name = game.getPlayer1().getName();
-        String player2Name = game.getPlayer2().getName();
+        String player1Name = m_game.getPlayer1().getName();
+        String player2Name = m_game.getPlayer2().getName();
 
         // create constructor in battle ship game
         
@@ -85,9 +86,9 @@ public class VsDriver extends Canvas
         {
             // Boards
             renderGrid(g, x, y, squareSize);
-            renderGuesses(g, x, y, squareSize, true);
+            renderGuesses(g, x, y, squareSize, m_game.getPlayer1());
             renderGrid(g, 570, y, squareSize);
-            renderGuesses(g, 570, y, squareSize, false);
+            renderGuesses(g, 570, y, squareSize, m_game.getPlayer2());
 
             // Names
             g.setColor(Color.WHITE);
@@ -136,15 +137,12 @@ public class VsDriver extends Canvas
             g.drawString(i + "", x+(int)(s*0.4)+s*i, y-(int)(s*0.2));
     }
 
-    private void renderGuesses(Graphics g, int x, int y, int s, boolean Player1)
+    private void renderGuesses(Graphics g, int x, int y, int s, Player Player)
     {
         int[][] guessBoard;
-        if(Player1 == true) {
-            guessBoard = game.getPlayer1().getBoard();
-        }
-        else {
-            guessBoard = game.getPlayer2().getBoard();
-        }
+        
+            guessBoard = Player.getBoard();
+
         for(int r = 0; r < guessBoard.length; r++)
             for(int c = 0; c < guessBoard[r].length; c++)
                 if(guessBoard[r][c] > 0)    // hit
