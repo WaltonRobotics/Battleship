@@ -27,21 +27,21 @@ public class VsDriver extends Canvas
         
         // Get Battleship Logo
         try {
-            logo = ImageIO.read(new File("img/Logo.png"));
+            logo = ImageIO.read(new File("src/Logo.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         // Get VS Screen
         try {
-            vs = ImageIO.read(new File("img/VS.png"));
+            vs = ImageIO.read(new File("src/VS.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         // Get End Screen
         try {
-            end = ImageIO.read(new File("img/End.png"));
+            end = ImageIO.read(new File("src/End.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
