@@ -13,8 +13,7 @@ public class VsDriver extends Canvas
 
     public VsDriver()
     {
-
-        BattleshipGame m_game = new BattleshipGame(new ComputerPlayer("Player 1"), new ComputerPlayer("Player 2"));
+        m_game = new BattleshipGame(new ComputerPlayer("Player 1"), new ComputerPlayer("Player 2"));
         x = 90;
         y = 200;
         squareSize = 36;
@@ -28,21 +27,21 @@ public class VsDriver extends Canvas
         
         // Get Battleship Logo
         try {
-            logo = ImageIO.read(new File("src/Logo.png"));
+            logo = ImageIO.read(new File("img/Logo.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         // Get VS Screen
         try {
-            vs = ImageIO.read(new File("src/VS.png"));
+            vs = ImageIO.read(new File("img/VS.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         // Get End Screen
         try {
-            end = ImageIO.read(new File("src/End.png"));
+            end = ImageIO.read(new File("img/End.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
