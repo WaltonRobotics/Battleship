@@ -16,4 +16,18 @@ public abstract class Player {
     public int[][] getBoard() {
         return m_guessBoard;
     }
+
+    public boolean isGameOver() {
+        boolean isGameOver = false;
+        int sunkShips = 0;
+        for(int i = 0; i < m_ships.length; i++) {
+            if(m_ships[i].isSunk()) {
+                sunkShips++;
+            }
+        }
+        if (sunkShips == 5){
+            isGameOver = true;
+        }
+        return isGameOver;
+    }
 }

@@ -82,7 +82,7 @@ public class VsDriver extends Canvas
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
-        if(true)
+        if(!m_game.isGameOver())
         {
             // Boards
             renderGrid(g, x, y, squareSize);
