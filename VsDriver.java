@@ -62,7 +62,7 @@ public class VsDriver extends Canvas
 
     private void move()
     {
-        while(true)
+        while(!m_game.isGameOver())
         {
             render();
 
