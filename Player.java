@@ -26,8 +26,8 @@ public abstract class Player {
             }
         }
         if (sunkShips == 5){
-            isGameOver = true;
+            return true;
         }
-        return isGameOver;
+        return false;
     }
 }
