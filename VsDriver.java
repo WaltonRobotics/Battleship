@@ -9,6 +9,7 @@ public class VsDriver extends Canvas
     public static final int WIDTH = 1024, HEIGHT = WIDTH / 12 * 9;
     private int x, y, squareSize, len;
     private BufferedImage logo, end, vs;
+    BattleshipGame game = new BattleshipGame(new ComputerPlayer("Player 1"), new ComputerPlayer("Player 2"));
 
     public VsDriver()
     {
@@ -17,9 +18,6 @@ public class VsDriver extends Canvas
         y = 200;
         squareSize = 36;
         len = squareSize * 10 - 1;
-        
-        //create battleship games
-        BattleshipGame game = new BattleshipGame(new ComputerPlayer("Player 1"), new ComputerPlayer("Player 2"));
 
         // get the players names
         String player1Name = game.getPlayer1().getName();
@@ -87,9 +85,9 @@ public class VsDriver extends Canvas
         {
             // Boards
             renderGrid(g, x, y, squareSize);
-            renderGuesses(g, x, y, squareSize);
+            renderGuesses(g, x, y, squareSize, true);
             renderGrid(g, 570, y, squareSize);
-            renderGuesses(g, 570, y, squareSize);
+            renderGuesses(g, 570, y, squareSize, false);
 
             // Names
             g.setColor(Color.WHITE);
@@ -138,9 +136,15 @@ public class VsDriver extends Canvas
             g.drawString(i + "", x+(int)(s*0.4)+s*i, y-(int)(s*0.2));
     }
 
-    private void renderGuesses(Graphics g, int x, int y, int s)
+    private void renderGuesses(Graphics g, int x, int y, int s, boolean Player1)
     {
-        int[][] guessBoard = new int[0][0];
+        int[][] guessBoard;
+        if(Player1 == true){
+            guessBoard = game.getPlayer1().getBoard();
+        }
+        else{
+            guessBoard = game.getPlayer2().getBoard();
+        }
         for(int r = 0; r < guessBoard.length; r++)
             for(int c = 0; c < guessBoard[r].length; c++)
                 if(guessBoard[r][c] > 0)    // hit
