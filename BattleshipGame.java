@@ -6,6 +6,7 @@ public class BattleshipGame {
     public BattleshipGame (Player p1, Player p2){
         m_p1 = p1;
         m_p2 = p2;
+        m_p1Turn = true;
     }
 
     public Player getPlayer1() {
