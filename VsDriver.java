@@ -139,10 +139,10 @@ public class VsDriver extends Canvas
     private void renderGuesses(Graphics g, int x, int y, int s, boolean Player1)
     {
         int[][] guessBoard;
-        if(Player1 == true){
+        if(Player1 == true) {
             guessBoard = game.getPlayer1().getBoard();
         }
-        else{
+        else {
             guessBoard = game.getPlayer2().getBoard();
         }
         for(int r = 0; r < guessBoard.length; r++)
