@@ -16,7 +16,7 @@ public class BattleshipGame {
         return m_p2;
     }
 
-    public boolean getTurn() {
+    public boolean getP1Turn() {
         return m_p1Turn;
     }
 
