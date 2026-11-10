@@ -7,6 +7,7 @@ public abstract class Player {
         m_name = name;
         m_guessBoard = new int[10][10];
         m_ships = new Ship[5];
+        //Need to add ships to the player
     }
 
     public String getName() {
