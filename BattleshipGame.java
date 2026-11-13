@@ -3,7 +3,7 @@ public class BattleshipGame {
     private Player m_p2;
     private boolean m_p1Turn; //if true it is p1 turn 
     
-    public BattleshipGame (Player p1, Player p2){
+    public BattleshipGame (Player p1, Player p2) {
         m_p1 = p1;
         m_p2 = p2;
         m_p1Turn = true;
@@ -27,6 +27,5 @@ public class BattleshipGame {
 
     public boolean isGameOver() {
         return m_p1.isGameOver() || m_p2.isGameOver();
-    }
-    
+    } 
 }
