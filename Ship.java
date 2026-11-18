@@ -9,6 +9,8 @@ public abstract class Ship{
     public Ship(int length, String name) {
         m_length = length;
         m_name = name;
+        m_locations = new HashSet<Location>();
+        m_hitLocations = new HashSet<Location>();
     }
 
     public String getName() {

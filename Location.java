@@ -33,4 +33,9 @@ public class Location {
         
         return false;
     }
+
+    @Override 
+    public int hashCode() {
+        return (this.getRow() * 10) + this.getColumn();
+    }
 }

@@ -36,6 +36,5 @@ public class BattleshipGame {
             m_p1.attackedByShip(m_p2);
         }
         changeTurn();
-        isGameOver();
     }
 }
