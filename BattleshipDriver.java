@@ -21,14 +21,14 @@ public class BattleshipDriver extends Canvas implements MouseListener
 
         // Get Battleship Logo
         try {
-            logo = ImageIO.read(new File("src/Logo.png"));
+            logo = ImageIO.read(new File("img/Logo.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         // Get End Screen
         try {
-            end = ImageIO.read(new File("src/End.png"));
+            end = ImageIO.read(new File("img/End.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
