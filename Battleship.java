@@ -1,10 +1,10 @@
 public class Battleship extends Ship {
-    public Battleship() {
+    public Battleship(Location location1, Location location2, Location location3, Location location4) {
         super(4, "Battleship");
-    
-        super.addLocation(new Location (0,0))
-             .addLocation(new Location (0,1))
-             .addLocation(new Location (0,2))
-             .addLocation(new Location (0,3));
+
+        super.addLocation(location1)
+             .addLocation(location2)
+             .addLocation(location3)
+             .addLocation(location4);
     }
 }
