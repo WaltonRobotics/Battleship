@@ -1,9 +1,9 @@
 public class Destroyer extends Ship {
-    public Destroyer() {
+    public Destroyer(Location location1, Location location2) {
         super(2, "Destroyer");
 
-        super.addLocation(new Location(3, 0))
-             .addLocation(new Location(3, 1));
+        super.addLocation(location1)
+             .addLocation(location2);
     }
     
 }
