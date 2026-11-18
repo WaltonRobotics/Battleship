@@ -7,11 +7,6 @@ public abstract class Player {
         m_name = name;
         m_guessBoard = new int[10][10];
         m_ships = new Ship[5];
-        m_ships[0] = new Battleship();
-        m_ships[1] = new Carrier();
-        m_ships[2] = new Cruiser();
-        m_ships[3] = new Destroyer();
-        m_ships[4] = new Submarine();
     }
 
     public String getName() {

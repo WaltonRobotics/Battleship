@@ -28,4 +28,4 @@ public class HumanPlayer extends Player {
                                      new Location(9, 3), 
                                      new Location(9, 4));
     }
-    }
+
