@@ -6,8 +6,8 @@ public class HumanPlayer extends Player {
     @Override 
     public Location getAttackLocations() {
         return new Location(0, 0);
-    };
-}
+    }
+
     @Override
     public void placeShips() {
         m_ships[0] = new Carrier(new Location(6, 1), 
@@ -28,4 +28,4 @@ public class HumanPlayer extends Player {
                                      new Location(9, 3), 
                                      new Location(9, 4));
     }
-
+}
