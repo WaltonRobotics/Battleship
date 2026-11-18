@@ -17,6 +17,9 @@ public abstract class Player {
         return m_guessBoard;
     }
 
+    public Ship[] getShips() {
+        return m_ships;
+    }
     public abstract void placeShips();
 
     public boolean isGameOver() {
@@ -31,5 +34,21 @@ public abstract class Player {
             return true;
         }
         return false;
+    }
+
+    public abstract Location getAttackLocations();
+
+    public void attackedByShip(Player attacker) {
+        Location loc = attacker.getAttackLocations();
+        for(int i = 0; i < m_ships.length; i++) {
+            if(m_ships[i].getLocations().contains(loc)) {
+                m_ships[i].addHit(loc);
+                attacker.getBoard()[loc.getRow()][loc.getColumn()] = 1;
+                return;
+            }
+            else {
+                attacker.getBoard()[loc.getRow()][loc.getColumn()] = -1; 
+            }
+        }
     }
 }

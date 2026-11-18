@@ -11,7 +11,6 @@ public abstract class Ship{
         m_name = name;
         m_locations = new HashSet<Location>();
         m_hitLocations = new HashSet<Location>();
-
     }
 
     public String getName() {
