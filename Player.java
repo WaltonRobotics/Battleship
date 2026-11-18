@@ -1,7 +1,7 @@
 public abstract class Player {
     private String m_name;
     private int m_guessBoard[][];
-    private Ship m_ships[];
+    protected Ship m_ships[];
 
     public Player(String name) {
         m_name = name;
@@ -16,6 +16,8 @@ public abstract class Player {
     public int[][] getBoard() {
         return m_guessBoard;
     }
+
+    public abstract void placeShips();
 
     public boolean isGameOver() {
         boolean isGameOver = false;
