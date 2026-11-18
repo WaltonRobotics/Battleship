@@ -21,7 +21,7 @@ public abstract class Player {
         boolean isGameOver = false;
         int sunkShips = 0;
         for(int i = 0; i < m_ships.length; i++) {
-            if(m_ships[i].isSunk()) {
+            if(m_ships[i] != null && m_ships[i].isSunk()) {
                 sunkShips++;
             }
         }
