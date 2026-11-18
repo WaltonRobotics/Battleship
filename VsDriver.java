@@ -63,6 +63,7 @@ public class VsDriver extends Canvas
     {
         while(!m_game.isGameOver())
         {
+            m_game.takeTurn();
             render();
 
             try {
