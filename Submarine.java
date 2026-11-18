@@ -1,9 +1,9 @@
 public class Submarine extends Ship {
-    public Submarine() {
+    public Submarine(Location location1, Location location2, Location location3) {
         super(3, "Submarine");
 
-        super.addLocation(new Location(1,2))
-             .addLocation(new Location(2,2))
-             .addLocation(new Location(3,2));
+        super.addLocation(location1)
+             .addLocation(location2)
+             .addLocation(location3);
     }
 }

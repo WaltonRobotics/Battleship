@@ -1,7 +1,7 @@
 public abstract class Player {
     private String m_name;
     private int m_guessBoard[][];
-    private Ship m_ships[];
+    protected Ship m_ships[];
 
     public Player(String name) {
         m_name = name;
@@ -17,6 +17,11 @@ public abstract class Player {
         return m_guessBoard;
     }
 
+    public Ship[] getShips() {
+        return m_ships;
+    }
+    public abstract void placeShips();
+
     public boolean isGameOver() {
         boolean isGameOver = false;
         int sunkShips = 0;
@@ -29,5 +34,21 @@ public abstract class Player {
             return true;
         }
         return false;
+    }
+
+    public abstract Location getAttackLocations();
+
+    public void attackedByShip(Player attacker) {
+        Location loc = attacker.getAttackLocations();
+        for(int i = 0; i < m_ships.length; i++) {
+            if(m_ships[i].getLocations().contains(loc)) {
+                m_ships[i].addHit(loc);
+                attacker.getBoard()[loc.getRow()][loc.getColumn()] = 1;
+                return;
+            }
+            else {
+                attacker.getBoard()[loc.getRow()][loc.getColumn()] = -1; 
+            }
+        }
     }
 }

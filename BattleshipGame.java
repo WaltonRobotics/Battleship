@@ -27,5 +27,14 @@ public class BattleshipGame {
 
     public boolean isGameOver() {
         return m_p1.isGameOver() || m_p2.isGameOver();
-    } 
+    }
+
+    public void takeTurn() {
+        if (m_p1Turn) {
+            m_p2.attackedByShip(m_p1);
+        } else {
+            m_p1.attackedByShip(m_p2);
+        }
+        changeTurn();
+    }
 }

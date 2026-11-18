@@ -56,6 +56,10 @@ public class VsDriver extends Canvas
         }
 
         render();
+        //Player 1 place ships
+        m_game.getPlayer1().placeShips();
+        //Player 2 places ships
+        m_game.getPlayer2().placeShips();
         move();
     }
 
@@ -63,6 +67,7 @@ public class VsDriver extends Canvas
     {
         while(!m_game.isGameOver())
         {
+            m_game.takeTurn();
             render();
 
             try {
