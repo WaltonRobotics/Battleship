@@ -71,7 +71,7 @@ public class VsDriver extends Canvas
             render();
 
             try {
-                Thread.sleep(1);                      // milliseconds; adjust to change speed
+                Thread.sleep(100);                      // milliseconds; adjust to change speed
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
