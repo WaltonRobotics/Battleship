@@ -1,13 +1,13 @@
 public class ComputerPlayer extends Player {
-    int variable;
+    int m_attackLocation;
     public ComputerPlayer(String name) {
         super(name);
-        variable = -1;
+        m_attackLocation = -1;
     }
 
     @Override
-    public Location getAttackLocations(){
-        variable ++;
-        return new Location(variable/10, variable%10);
+    public Location getAttackLocations() {
+        m_attackLocation++;
+        return new Location(m_attackLocation / 10, m_attackLocation % 10);
     }
 }
