@@ -71,7 +71,7 @@ public class VsDriver extends Canvas
             render();
 
             try {
-                Thread.sleep(250);                      // milliseconds; adjust to change speed
+                Thread.sleep(100);                      // milliseconds; adjust to change speed
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
@@ -96,8 +96,8 @@ public class VsDriver extends Canvas
 
             // Names
             g.setColor(Color.WHITE);
-            g.drawString("", x, y + 25 + len);
-            g.drawString("", 570, y + 25 + len);
+            g.drawString(m_game.getPlayer1().getName(), x, y + 25 + len);
+            g.drawString(m_game.getPlayer2().getName(), 570, y + 25 + len);
         }
         else
         {
@@ -105,7 +105,7 @@ public class VsDriver extends Canvas
             g.drawImage(end, 0, 0, this);
             g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", 1, squareSize));
-            String winner = "";
+            String winner = m_game.getPlayer1().isGameOver() ? m_game.getPlayer2().getName() : m_game.getPlayer1().getName();
             g.drawString(winner, WIDTH / 2 - (winner.length() * squareSize / 4), HEIGHT / 4);
             g.drawString("Wins!", WIDTH / 2 - ("Wins!".length() * squareSize / 4), HEIGHT / 4 + squareSize);
         }
