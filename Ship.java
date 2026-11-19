@@ -21,8 +21,10 @@ public abstract class Ship{
         return m_length;
     }
 
-    public Ship addLocation(Location location) {
-        m_locations.add(location);
+    public Ship addLocation(Location... locations) {
+        for (Location location : locations) {
+            m_locations.add(location);
+        }
         return this;
     }
 
