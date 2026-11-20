@@ -4,7 +4,7 @@ public class HumanPlayer extends Player {
     }
 
     @Override 
-    public Location getAttackLocations() {
+    public Location getAttackLocations(int altAttackLocations) {
         return new Location(0, 0);
     }
 

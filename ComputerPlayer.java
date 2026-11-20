@@ -1,16 +1,39 @@
 public class ComputerPlayer extends Player {
     int m_attackLocation;
+    boolean m_switchLocation;
     public ComputerPlayer(String name) {
         super(name);
         m_attackLocation = -1;
+        m_switchLocation = false;
     }
 
     @Override
-    public Location getAttackLocations() {
-        m_attackLocation++;
-        return new Location(m_attackLocation / 10, m_attackLocation % 10);
+    public Location getAttackLocations(int altAttackLocations) {
+        if(altAttackLocations == 1) {
+            m_attackLocation++;
+        }
+        if(altAttackLocations == 2) {
+            if(m_switchLocation == false) {
+                m_attackLocation = 100;
+                m_switchLocation = true;
+            }
+            m_attackLocation--;
+        }
+      //  if(altAttackLocations == 3) {
+      //      if(m_attackLocation == -1) {
+      //          m_attackLocation = 10 * m_multiplier;
+      //          m_multiplier ++;
+      //      } else {
+      //          m_attackLocation --;
+      //      }
+      //  }
+    return new Location(m_attackLocation / 10, m_attackLocation % 10);
     }
 
+    public void setAttackLocation(int attackLocation) {
+        m_attackLocation = attackLocation;
+    }
+    
     @Override
     public void placeShips(int altPlacement) {
         switch (altPlacement) {
@@ -92,5 +115,5 @@ public class ComputerPlayer extends Player {
                                          new Location(5, 5));
             break;
             }
-    }   
+    }
 }
