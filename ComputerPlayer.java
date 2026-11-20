@@ -1,26 +1,24 @@
 public class ComputerPlayer extends Player {
     int m_attackLocation;
     int m_multiplier;
-    boolean m_switch;
+    boolean m_switchLocation;
     public ComputerPlayer(String name) {
         super(name);
         m_attackLocation = -1;
-        m_multiplier = 1;
-        m_switch = false;
+        m_switchLocation = false;
     }
 
     @Override
     public Location getAttackLocations(int altAttackLocations) {
         if(altAttackLocations == 1) {
-            setAttackLocation(m_attackLocation + 1);
-            return new Location(m_attackLocation / 10, m_attackLocation % 10);
+            m_attackLocation++;
         }
         if(altAttackLocations == 2) {
-            if(m_switch == false) {
-                setAttackLocation(100);
-                m_switch = true;
+            if(m_switchLocation == false) {
+                m_attackLocation = 100;
+                m_switchLocation = true;
             }
-            setAttackLocation(m_attackLocation - 1);
+            m_attackLocation--;
         }
       //  if(altAttackLocations == 3) {
       //      if(m_attackLocation == -1) {
