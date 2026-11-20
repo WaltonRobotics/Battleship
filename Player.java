@@ -38,8 +38,8 @@ public abstract class Player {
 
     public abstract Location getAttackLocations();
 
-    public void attackedByShip(Player attacker) {
-        Location loc = attacker.getAttackLocations();
+    public void attackedByShip(Player attacker, Location location) {
+        Location loc = location != null ? location : attacker.getAttackLocations();
         for(int i = 0; i < m_ships.length; i++) {
             if(m_ships[i].getLocations().contains(loc)) {
                 m_ships[i].addHit(loc);

@@ -11,13 +11,19 @@ public class BattleshipDriver extends Canvas implements MouseListener
     public static final int WIDTH = 1024, HEIGHT = WIDTH / 12 * 9;
     private int x, y, squareSize, len;
     private BufferedImage logo, end;
+    BattleshipGame m_game;
 
     public BattleshipDriver()
     {
+        m_game = new BattleshipGame(new HumanPlayer("Player 1"), new ComputerPlayer("Player 2"));
         x = 90;
         y = 200;
         squareSize = 36;
         len = squareSize * 10 - 1;
+
+        // get the players names
+        String player1Name = m_game.getPlayer1().getName();
+        String player2Name = m_game.getPlayer2().getName();
 
         // Get Battleship Logo
         try {
@@ -37,6 +43,9 @@ public class BattleshipDriver extends Canvas implements MouseListener
 
         new Window(WIDTH, HEIGHT, "Battleship", this);
 
+        String title = player1Name + " -vs- " + player2Name;
+        new Window(WIDTH, HEIGHT, title, this);
+
         try {
             Thread.sleep(100);
         } catch(InterruptedException ex) {
@@ -44,6 +53,11 @@ public class BattleshipDriver extends Canvas implements MouseListener
         }
 
         render();
+        //Player 1 place ships
+        m_game.getPlayer1().placeShips();
+        //Player 2 places ships
+        m_game.getPlayer2().placeShips();
+
     }
 
     private void render()
@@ -54,18 +68,18 @@ public class BattleshipDriver extends Canvas implements MouseListener
         g.setColor(Color.DARK_GRAY);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
-        if(true)
+        if(!m_game.isGameOver())
         {
             // Boards
             renderGrid(g, x, y, squareSize);
-            renderGuesses(g, x, y, squareSize);
+            renderGuesses(g, x, y, squareSize, m_game.getPlayer1());
             renderGrid(g, 570, y, squareSize);
-            renderGuesses(g, 570, y, squareSize);
+            renderGuesses(g, 570, y, squareSize, m_game.getPlayer2());
 
             // Names
             g.setColor(Color.WHITE);
-            g.drawString("", x, y + 25 + len);
-            g.drawString("", 570, y + 25 + len);
+            g.drawString(m_game.getPlayer1().getName(), x, y + 25 + len);
+            g.drawString(m_game.getPlayer2().getName(), 570, y + 25 + len);
         }
         else
         {
@@ -106,9 +120,9 @@ public class BattleshipDriver extends Canvas implements MouseListener
             g.drawString(i + "", x+(int)(s*0.4)+s*i, y-(int)(s*0.2));
     }
 
-    public void renderGuesses(Graphics g, int x, int y, int s)
+    public void renderGuesses(Graphics g, int x, int y, int s, Player player)
     {
-        int[][] guessBoard = new int[0][0];
+        int[][] guessBoard = player.getBoard();
         for(int r = 0; r < guessBoard.length; r++)
             for(int c = 0; c < guessBoard[r].length; c++)
                 if(guessBoard[r][c] > 0)    // hit
@@ -136,8 +150,16 @@ public class BattleshipDriver extends Canvas implements MouseListener
             int col = (c - x) / squareSize;
 
             System.out.println(row + ", " + col);
+            render();
+            m_game.getPlayer2().attackedByShip(m_game.getPlayer1(), new Location(row, col));
+            
+            render();
+            m_game.changeTurn();
+            m_game.getPlayer1().attackedByShip(m_game.getPlayer2(), null);
 
             render();
+            m_game.changeTurn();
+
         }
 
         System.out.println(r + ", " + c);
