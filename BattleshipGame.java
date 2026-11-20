@@ -31,9 +31,9 @@ public class BattleshipGame {
 
     public void takeTurn() {
         if (m_p1Turn) {
-            m_p2.attackedByShip(m_p1);
+            m_p2.attackedByShip(m_p1, 1);
         } else {
-            m_p1.attackedByShip(m_p2);
+            m_p1.attackedByShip(m_p2, 2);
         }
         changeTurn();
     }
