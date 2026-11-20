@@ -20,7 +20,7 @@ public abstract class Player {
     public Ship[] getShips() {
         return m_ships;
     }
-    public abstract void placeShips();
+    public abstract void placeShips(int altPlacement);
 
     public boolean isGameOver() {
         boolean isGameOver = false;
