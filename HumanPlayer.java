@@ -9,7 +9,7 @@ public class HumanPlayer extends Player {
     }
 
     @Override
-    public void placeShips() {
+    public void placeShips(int altPlacement) {
         m_ships[0] = new Carrier(new Location(6, 1), 
                                  new Location(6, 2), 
                                  new Location(6, 3), 

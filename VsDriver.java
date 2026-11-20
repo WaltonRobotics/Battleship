@@ -57,9 +57,9 @@ public class VsDriver extends Canvas
 
         render();
         //Player 1 place ships
-        m_game.getPlayer1().placeShips();
+        m_game.getPlayer1().placeShips(1);
         //Player 2 places ships
-        m_game.getPlayer2().placeShips();
+        m_game.getPlayer2().placeShips(3);
         move();
     }
 
