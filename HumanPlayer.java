@@ -4,12 +4,12 @@ public class HumanPlayer extends Player {
     }
 
     @Override 
-    public Location getAttackLocations() {
+    public Location getAttackLocations(int altAttackLocations) {
         return new Location(0, 0);
     }
 
     @Override
-    public void placeShips() {
+    public void placeShips(int altPlacement) {
         m_ships[0] = new Carrier(new Location(6, 1), 
                                  new Location(6, 2), 
                                  new Location(6, 3), 

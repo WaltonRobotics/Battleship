@@ -54,9 +54,9 @@ public class BattleshipDriver extends Canvas implements MouseListener
 
         render();
         //Player 1 place ships
-        m_game.getPlayer1().placeShips();
+        m_game.getPlayer1().placeShips(1);
         //Player 2 places ships
-        m_game.getPlayer2().placeShips();
+        m_game.getPlayer2().placeShips(2);
 
     }
 
@@ -151,11 +151,11 @@ public class BattleshipDriver extends Canvas implements MouseListener
 
             System.out.println(row + ", " + col);
             render();
-            m_game.getPlayer2().attackedByShip(m_game.getPlayer1(), new Location(row, col));
+            m_game.getPlayer2().attackedByShip(m_game.getPlayer1(), new Location(row, col), 1);
             
             render();
             m_game.changeTurn();
-            m_game.getPlayer1().attackedByShip(m_game.getPlayer2(), null);
+            m_game.getPlayer1().attackedByShip(m_game.getPlayer2(), null, 1);
 
             render();
             m_game.changeTurn();

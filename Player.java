@@ -20,7 +20,7 @@ public abstract class Player {
     public Ship[] getShips() {
         return m_ships;
     }
-    public abstract void placeShips();
+    public abstract void placeShips(int altPlacement);
 
     public boolean isGameOver() {
         boolean isGameOver = false;
@@ -36,10 +36,11 @@ public abstract class Player {
         return false;
     }
 
-    public abstract Location getAttackLocations();
+    public abstract Location getAttackLocations(int altAttackLocations);
 
-    public void attackedByShip(Player attacker, Location location) {
-        Location loc = location != null ? location : attacker.getAttackLocations();
+    public void attackedByShip(Player attacker, Location location, int altAttackLocations) {
+        Location loc = location != null ? location : attacker.getAttackLocations(altAttackLocations);
+
         for(int i = 0; i < m_ships.length; i++) {
             if(m_ships[i].getLocations().contains(loc)) {
                 m_ships[i].addHit(loc);
