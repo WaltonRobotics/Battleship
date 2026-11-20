@@ -1,6 +1,5 @@
 public class ComputerPlayer extends Player {
     int m_attackLocation;
-    int m_multiplier;
     boolean m_switchLocation;
     public ComputerPlayer(String name) {
         super(name);

@@ -50,7 +50,7 @@ public class VsDriver extends Canvas
         new Window(WIDTH, HEIGHT, title, this);
 
         try {
-            Thread.sleep(1);
+            Thread.sleep(100);
         } catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
